@@ -4,26 +4,36 @@ function getComputerChoice(a) {
 function play(playerselection,compselection) {
   a = playerselection.toLowerCase();
   b = compselection.toLowerCase();
-  switch (true){
-    case a == "rock":
+  console.log(playerselection);
+    if (a == "rock"){
       if (b == "paper") {
-        console.log("You Won!);
+        alert("You Won!");
       }else{
-        console.log("You lost");
+        alert("You lost");
       }
-    case a == "paper":
+    }
+    if (a == "paper"){
       if (b == "scissor") {
-        console.log("You Won!");
+        alert("You Won!");
       }else{
-        console.log("You lost");
+        alert("You lost");
       }
-    case a == "scissor":
+    }
+    if (a == "scissor"){
       if (b == "rock") {
-        console.log("You Won!");
+        alert("You Won!");
       }else{
-        console.log("You lost");
+        alert("You lost");
       }
-  }
+    }
+  
 }
-console.log(getComputerChoice(['rock','paper','scissor']));
+s = document.querySelectorAll('button');  // since we need to apply to all the buttons same properties
+s.forEach((y)=>{
+y.style.cssText='background-color:black;color:white;width:10vw;height:10vw;border-radius:15px;';
+y.addEventListener('click',function(){
+  play(y.id,getComputerChoice(['rock','paper','scissor']));
+}
+)
+})
 
