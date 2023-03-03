@@ -1,29 +1,52 @@
 function getComputerChoice(a) {
   return a[Math.floor(Math.random()*a.length)];
 }
+let u_score = 0;
+let c_score = 0;
 function play(playerselection,compselection) {
   a = playerselection.toLowerCase();
   b = compselection.toLowerCase();
-  switch (true){
-    case a == "rock":
+  firstclk=true;
+  console.log(u_score,c_score);
+    if (a == "rock"){
       if (b == "paper") {
-        console.log("You Won!);
+        u_score+=1;
       }else{
-        console.log("You lost");
+        c_score+=1;
       }
-    case a == "paper":
+    }
+    if (a == "paper"){
       if (b == "scissor") {
-        console.log("You Won!");
+        u_score+=1;
       }else{
-        console.log("You lost");
+        c_score+=1;
       }
-    case a == "scissor":
+    }
+    if (a == "scissor"){
       if (b == "rock") {
-        console.log("You Won!");
+        u_score+=1;
       }else{
-        console.log("You lost");
+        c_score+=1;
       }
-  }
+    }
+  
 }
-console.log(getComputerChoice(['rock','paper','scissor']));
+firstclk = false;
+
+s = document.querySelectorAll('button');  // since we need to apply to all the buttons same properties
+s.forEach((y)=>{
+
+
+y.style.cssText='background-color:black;color:white;width:10vw;height:10vw;border-radius:15px;';
+y.addEventListener('click',function(){
+  play(y.id,getComputerChoice(['rock','paper','scissor']));
+  b = document.querySelector('#hello');
+  c = document.querySelector('body');
+  if (firstclk) {
+
+    c.removeChild(b);
+}
+
+})})
+
 
