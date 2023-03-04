@@ -42,9 +42,15 @@ y.addEventListener('click',function(){
   play(y.id,getComputerChoice(['rock','paper','scissor']));
   b = document.querySelector('#hello');
   c = document.querySelector('body');
+  ref = document.querySelector('#rock');
   if (firstclk) {
-
+    //console.log(b)
     c.removeChild(b);
+    const neww = document.createElement('div');
+    neww.setAttribute('id','hello');
+    neww.innerHTML = `Current User Score: ${u_score} <br> Current Computer Score: ${c_score}` ;
+
+    c.insertBefore(neww,ref);
 }
 
 })})
